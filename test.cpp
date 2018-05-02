@@ -2,16 +2,6 @@
 
 int main()
 {
-	//any display or print functions are commented out
-	//so that it doesn't clog the screen
-	//, feel free to uncomment them to verify functionality
-
-	//testing constructor and destructor
-//	for (int i = 0; i < 2; i++)
-//	{
-//		DAG g;
-//	}
-
 	//creating main graph along with test vertices and edges
 	DAG g;
 	Vertex v0(0, 3.5, "COEN212: Digital System Design I");
@@ -41,9 +31,6 @@ int main()
 	Vertex v24(24, 4, "COEN451: VLSI Circuit Design");
 	Vertex v25(25, 4, "COEN490: Capstone Computer Engineering Design Project");
 	Vertex v26(26, 3, "COEN498: Topics in Computer Engineering");
-	Vertex dummyVertex0(97, 97, "dummy vertex 97");
-	Vertex dummyVertex1(99, 99, "dummy vertex 99");
-	Vertex dummyVertex2(101, 101, "dummy vertex 101");
 	Vertex* temp = new Vertex[27];
 	temp[0] = v0;
 	temp[1] = v1;
@@ -101,9 +88,6 @@ int main()
 	Edge e26(26, 0, 24, 0.5);
 	Edge e27(27, 12, 25, 0.2);
 	Edge e28(28, 13, 25, 0.2);
-	Edge dummyEdge0(99, 97, 99, 123424);
-	Edge dummyEdge1(100, 99, 101, 234325235);
-	Edge dummyEdge2(101, 101, 102, 32042430);
 	Edge* temp2 = new Edge[29];
 	temp2[0] = e0;
 	temp2[1] = e1;
@@ -134,107 +118,6 @@ int main()
 	temp2[26] = e26;
 	temp2[27] = e27;
 	temp2[28] = e28;
-
-	//testing display() with addvertex(Vertex&)
-//	g.display(); //display before
-	g.addVertex(dummyVertex0);
-//	g.display(); //display after adding
-
-	//testing addVertices(array, size)
-	Vertex* temp3 = new Vertex[2];
-	temp3[0] = dummyVertex1;
-	temp3[1] = dummyVertex2;
-	g.addVertices(temp3, 2);
-//	g.display();
-
-	//testing addEdge
-	g.addEdge(dummyEdge0);
-//	g.display();
-
-	//testing addEdges
-	Edge* temp4 = new Edge[2];
-	temp4[0] = dummyEdge1;
-	temp4[1] = dummyEdge2;
-	g.addEdges(temp4, 2);
-//	g.display();
-
-	//testing remove edge
-	g.removeEdge(dummyEdge2);
-//	g.display();
-
-	//testing remove vertex
-	g.removeVertex(dummyVertex1); //dummyedge0 and dummyedge1 are also removed since they are connected to this vertex
-//	g.display();
-
-	//testing remove edges
-	g.addEdges(temp4, 2); //add back the two edges
-//	g.display();
-	g.removeEdges(temp4, 2);
-//	g.display();
-
-	//testing searchVertex
-	g.removeVertex(dummyVertex0);
-	g.removeVertex(dummyVertex2);
-//	g.display(); //empty graph
-	g.addVertices(temp, 27); //adding all courses in computer engineering
-	g.addEdges(temp2, 29); //adding all prerequisites in form of edges
-//	g.display();
-//	cout << g.searchVertex(v5) << endl; //should return 1 since v5 was added via g.addVertices(temp, 27);
-//	cout << g.searchVertex(dummyVertex2) << endl; //should return 0 since it was removed
-
-	//testing searchEdge
-//	cout << g.searchEdge(e18) << endl; //should return 1 since e18 was added via g.addEdges(temp2, 29);
-//	cout << g.searchEdge(dummyEdge1) << endl; //should return 0 since it was removed
-
-	//testing display(Vertex)
-//	g.display(v17);
-
-	//testing display(Edge)
-//	g.display(e9);
-
-	//testing toString or displaying all paths
-//	g.toString();
-
-	//testing clean or remove everything
-	g.clean();
-//	g.display();
-
-	//testing overloaded ==
-	g.addVertices(temp, 27);
-	g.addEdges(temp2, 29);
-	DAG g2;
-	g2.addVertices(temp, 27);
-	g2.addEdges(temp2, 29);
-//	cout << (g == g2) << endl; //should return 1 since g and g2 have the same vertices and edges
-	g2.removeVertex(v4);
-//	cout << (g == g2) << endl; //should return 0 since I have now removed a vertex and connecting edges
-
-	//testing overloaded =
-	g2.clean();
-//	g2.display(); //g2 is now empty
-	g2 = g; //assign everything into g2
-//	g3.display(); //g2 has all vertices and edges of g
-
-	//testing overloaded preincrement ++
-	++g;
-//	g.display(); //all g's edges' weight have increased by 1
-	g2 = g++; //postincremental ++ test
-//	g2.display(); //g2's edges' weight remain the same as g's edges' weight before the postincrement
-//	g.display(); //g's edges' weight are incremented
-
-	//testing overloaded >
-//	cout << (g > g2) << endl; //should output 1 or true since g was incremented one more time than g2
-//	cout << (g2 > g) << endl; //should output 0 or false
-
-	//testing overloaded +
-	g2.clean(); //clear g2
-	g2.addVertices(temp3, 2); //add dummy vertices to g2
-	g2.addEdges(temp4, 2); //add dummy edges to g2
-	DAG g3 = g + g2;
-//	g3.display(); //g3's vertices and edges are the combined vertices and edges of g2's and g's
-
-	//testing overloaded <<
-//	cout << g3 << endl << g << endl << g2 << endl;
 
 	return 0;
 }

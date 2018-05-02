@@ -7,9 +7,9 @@
 
 using namespace std;
 
-DAG::DAG(){cout << "Constructor invoked" << endl << endl;} //nothing
+DAG::DAG(){}
 
-DAG::~DAG(){clean(); cout << "Destructor invoked" << endl << endl;} //clears all elements in vectors
+DAG::~DAG(){clean();} //clears all elements in vectors
 
 void DAG::fillRoot(vector<int> &root) const //fills argument with root vertex ids
 {
